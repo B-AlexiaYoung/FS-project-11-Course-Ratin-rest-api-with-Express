@@ -5,11 +5,13 @@
 * Open a second Command Prompt (on Windows) or Terminal (on Mac OS X) instance.
 * Browse to the seed-data folder located in the root of the project.
 * Run the following commands:
-
+```
 mongoimport --db course-api --collection courses --type=json --jsonArray --file courses.json
-mongoimport --db course-api --collection users --type=json --jsonArray --file users.json
-mongoimport --db course-api --collection reviews --type=json --jsonArray --file reviews.json
 
+mongoimport --db course-api --collection users --type=json --jsonArray --file users.json
+
+mongoimport --db course-api --collection reviews --type=json --jsonArray --file reviews.json
+```
 
 ## Tests
 * run tests by typing npm test
