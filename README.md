@@ -1,6 +1,6 @@
 # FS-project-11-Course-Ratin-rest-api-with-Express
 
-# Seed your MongoDB database with data.
+## Seed your MongoDB database with data.
 * If you haven't already done so, open a Command Prompt (on Windows) or Terminal (on Mac OS X) instance and run the command mongod (or sudo mongod) to start the MongoDB daemon.
 * Open a second Command Prompt (on Windows) or Terminal (on Mac OS X) instance.
 * Browse to the seed-data folder located in the root of the project.
