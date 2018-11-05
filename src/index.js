@@ -14,13 +14,15 @@ const jsonParser = require("body-parser").json;
 const session = require("express-session");
 
 app.use(session({
-  secret:"mr wible wobble",
+  secret: "mr wibble wobble",
   resave: true,
   saveUninitialized: false
 }));
 
-app.use(jsonParser());  // place before routes
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(jsonParser()); // place before routes
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 app.use("/api/users", usersRoute);
 app.use("/api/reviews", reviewsRoute);
@@ -29,16 +31,16 @@ app.use("/api/courses", coursesRoute);
 app.set('port', process.env.PORT || 5000);
 // db connection
 mongoose.connect('mongodb://localhost:27017/course-api')
-let db= mongoose.connection;
+let db = mongoose.connection;
 
 
-db.on("error", function (error){
+db.on("error", function (error) {
   console.log("connection error", error)
 })
-db.once("open", function(){
+db.once("open", function () {
   console.log("db connection successfull")
-  
-  
+
+
 });
 
 // morgan gives us http request logging
@@ -79,3 +81,6 @@ app.use((err, req, res, next) => {
 const server = app.listen(app.get('port'), () => {
   console.log(`Express server is listening on port ${server.address().port}`);
 });
+
+
+module.exports = server
