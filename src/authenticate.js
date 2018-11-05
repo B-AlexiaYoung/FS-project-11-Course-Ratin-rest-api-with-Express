@@ -10,7 +10,6 @@ function authorizedUser(req, res, next) {
         let mail = verify.name;
         let pass = verify.pass;
         User.authenticate(mail, pass, function (err, user) {
-            //console.log(mail, pass);
             if (err || !user) {
                 let err = new Error("There was either no email or password found");
                 err.status = 401;

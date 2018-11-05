@@ -25,5 +25,23 @@
     "emailAddress": "sam@smith.com",
     "password": "password",
     "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "5bdf5934af318e5f6010d0eb"
+    },
+    "fullName": "Maddie Long",
+    "emailAddress": "maddie@long.com",
+    "password": "$2b$10$FU7Pe9GsjSm69DBEjUMnQOXHPdNn0ZtsciH0t4B5ZBmEyE6/Frs3.",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "5bdf299ff92e31569cd78d45"
+    },
+    "fullName": "Jon Smee",
+    "emailAddress": "jon@smee.com",
+    "password": "$2b$10$vsNfcVGNd8omIC2wvIq6tub7.XZlLdBhOSt9duWjYh.DbHDF8gTI6",
+    "__v": 0
   }
 ]

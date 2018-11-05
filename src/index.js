@@ -4,11 +4,9 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require("mongoose");
-
 const app = express();
 const usersRoute = require("./routes/usersRoute");
 const coursesRoute = require("./routes/coursesRoute");
-const reviewsRoute = require("./routes/reviewsRoute")
 const bodyParser = require("body-parser")
 const jsonParser = require("body-parser").json;
 const session = require("express-session");

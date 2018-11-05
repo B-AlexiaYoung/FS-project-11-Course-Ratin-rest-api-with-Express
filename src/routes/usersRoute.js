@@ -8,12 +8,9 @@ let User = require("../models/user").User;
 let Review = require("../models/review").Review;
 let auth = require("../authenticate");
 
-// routing get single user ++++++++++++++++++  NEED TO ADD AUTHENTICATION    ++++++++++++++++++++++++++++++++++++
+// routing get single user 
 router.get("/", auth.authorizedUser, (req, res, next) => {
-    // if(req.body.email && req.body.password){
-    //     User.authenticate();
-    // }
-    //console.log(req.doc);
+   
     let eAddress = req.doc.emailAddress;
 
     User.findOne({
@@ -23,7 +20,6 @@ router.get("/", auth.authorizedUser, (req, res, next) => {
             if (err) {
                 return next(err)
             };
-            //console.log(users);
             res.json(users);
             res.status = 200;
         })
@@ -32,12 +28,10 @@ router.get("/", auth.authorizedUser, (req, res, next) => {
 
 // routing creates new user
 router.post("/", (req, res, next) => {
-    console.log(req.body);
     User.create(req.body, function (err, newUser) {
         if (err) {
             err.status = 400;
             return next(err);
-            //console.log(err);
         }
 
         res.location("/");
