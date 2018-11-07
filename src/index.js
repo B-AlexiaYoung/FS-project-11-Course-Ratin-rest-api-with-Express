@@ -5,6 +5,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require("mongoose");
 const app = express();
+const reviewRoute = require("./routes/reviewRoute")
 const usersRoute = require("./routes/usersRoute");
 const coursesRoute = require("./routes/coursesRoute");
 const bodyParser = require("body-parser")
