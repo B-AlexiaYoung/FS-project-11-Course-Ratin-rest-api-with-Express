@@ -43,7 +43,9 @@ router.post("/", auth.authorizedUser, (req, res, next) => {
             res.status(400);
             return next(err);
         }
-        res.redirect("/")
+        res.location("/");
+        res.status(201);
+        res.end();
     })
 
 })
