@@ -5,7 +5,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require("mongoose");
 const app = express();
-const reviewRoute = require("./routes/reviewsRoute")
+const reviewsRoute = require("./routes/reviewsRoute")
 const usersRoute = require("./routes/usersRoute");
 const coursesRoute = require("./routes/coursesRoute");
 const bodyParser = require("body-parser")
@@ -25,11 +25,10 @@ app.use(bodyParser.urlencoded({
 
 app.use("/api/users", usersRoute);
 app.use("/api/courses", coursesRoute);
-//app.use("/api/reviews", reviewsRoute);
 // set our 
 app.set('port', process.env.PORT || 5000);
 // db connection
-mongoose.connect('mongodb://localhost:27017/course-api')
+mongoose.connect('mongodb://localhost:27017/course-api',{ useNewUrlParser: 'true'})
 let db = mongoose.connection;
 
 

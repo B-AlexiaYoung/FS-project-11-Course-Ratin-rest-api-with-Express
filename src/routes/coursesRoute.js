@@ -12,7 +12,7 @@ let auth = require("../authenticate");
 
 // routing api/courses - all courses
 
-router.get("/", auth.authorizedUser, (req, res, next) => {
+router.get("/", (req, res, next) => {   // taken out auth
     Course.find({}, '_id title')
         .exec(function (err, courses) {
             if (err) return next(err);
@@ -22,7 +22,7 @@ router.get("/", auth.authorizedUser, (req, res, next) => {
 })
 
 // routing api/courses/courseid  - individual courses
-router.get("/:courseId", auth.authorizedUser, (req, res, next) => {
+router.get("/:courseId", (req, res, next) => {
     Course.findById(req.params.courseId)
         .populate('user', "_id fullName")
         .populate('reviews')
