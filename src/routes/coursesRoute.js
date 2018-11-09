@@ -52,9 +52,9 @@ router.post("/", auth.authorizedUser, (req, res, next) => {
 //routing put update course
 router.put("/:cid", auth.authorizedUser, (req, res, next) => {
   
-    let courseToUpdate = req.params.cid
-
+    let courseToUpdate = req.params.cid;
     let updateFields = req.body;
+
     let findCourse = Course.findOneAndUpdate(
         { _id: courseToUpdate }, updateFields)
         .exec(function (err, courses) {
@@ -68,7 +68,7 @@ router.put("/:cid", auth.authorizedUser, (req, res, next) => {
         })
 });
 
-//routing post new review 
+//routing post new review, including no self review validation.
 router.post("/:cid/reviews", auth.authorizedUser, (req, res, next) => {
     let userID = req.doc._id
     let reviewedCourse=req.params.cid;
@@ -97,7 +97,6 @@ router.post("/:cid/reviews", auth.authorizedUser, (req, res, next) => {
                 postedOn: new Date(),
                 })
               
-               
                 newReview.save((err) =>{
                     if(err){
                         err.status = 400;
@@ -109,11 +108,7 @@ router.post("/:cid/reviews", auth.authorizedUser, (req, res, next) => {
                     res.status(201);
                     res.location("/" + courseID);
                     res.end();
-                })
-                
-               
-
-                
+                })             
             }
         });
     })
